@@ -1,0 +1,70 @@
+mkdir  SI_2024_lab1_183065
+cd  SI_2024_lab1_183065
+git init
+
+git remote add origin https://github.com/pavlestojanovski/SI_2024_lab1_183065.git
+
+notepad README.md
+git add README.md
+git commit -m "Initial commit"
+
+git add SILab1_1.java
+git add SILab1Main.java
+git add SILab1_2.java
+git commit -m "Add java class"
+
+git push origin master
+
+git branch bug1
+git branch bug2
+
+git checkout bug1
+
+notepad SILab1_1.java.txt
+git add SILab1_1.java.txt
+git commit -m "Fix wrong condition in filterOddLengthStrings"
+
+git checkout bug2
+
+notepad SILab1_2.java.txt
+git add SILab1_2.java.txt
+git commit -m "Fix wrong condition in makeBigStringFrom"
+
+git checkout bug1
+
+notepad SILab1Main.java.txt
+git add SILab1Main.java.txt
+git commit -m " Call method filterOddLengthStrings in main class."
+
+git checkout bug2
+notepad SILab1Main.java.txt
+git add SILab1Main.java.txt
+git commit -m " Call method makeBigStringFrom in main class."
+
+git push origin bug2
+
+git checkout bug1
+git push origin bug1
+
+git checkout master
+git merge bug1
+git push origin master
+
+git checkout bug2
+git rebase master // ke se javi konflikt i racno ke go resime
+
+notepad SILab1Main.java.txt
+git add SILab1Main.java.txt
+git rebase --continue // Resolved Conflict
+
+git checkout master
+git merge bug2
+
+git checkout master
+git push origin master
+
+git checkout bug1
+git push origin bug1
+
+git checkout bug1
+git push origin bug2 --force
